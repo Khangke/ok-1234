@@ -300,6 +300,35 @@ select:focus {
 
 /* Enhanced Mobile & Desktop Optimizations */
 
+/* Ensure icons are visible */
+.fas, .fab {
+    font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
+    font-weight: 900;
+    font-style: normal;
+}
+
+/* Fallback for missing icons */
+.icon-fallback {
+    position: relative;
+}
+
+.icon-fallback svg {
+    display: none;
+}
+
+.icon-fallback i {
+    display: inline-block;
+}
+
+/* Show SVG if Font Awesome fails */
+.icon-fallback:not([class*="fa-"]) svg {
+    display: inline-block;
+}
+
+.icon-fallback:not([class*="fa-"]) i {
+    display: none;
+}
+
 /* Touch-friendly interactions */
 .touch-target {
     min-height: 44px;
