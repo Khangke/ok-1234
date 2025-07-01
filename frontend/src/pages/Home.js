@@ -1,19 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { products, testimonials, companyInfo, getBadgeColor } from '../data/mockData';
 import { useCart } from '../contexts/CartContext';
+import ProductModal from '../components/ProductModal';
 
 const Home = () => {
   const { addToCart } = useCart();
   const navigate = useNavigate();
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleQuickAdd = (product) => {
+  const handleQuickAdd = (product, e) => {
+    e.stopPropagation();
     // Add with default size and mid-range price
     const defaultSize = product.sizes[0];
     const midPrice = (product.price.min + product.price.max) / 2;
     addToCart(product, defaultSize, 1, midPrice);
     // Chuyển thẳng đến trang thanh toán
     navigate('/checkout');
+  };
+
+  const openProductModal = (product) => {
+    setSelectedProduct(product);
+    setIsModalOpen(true);
+  };
+
+  const closeProductModal = () => {
+    setIsModalOpen(false);
+    setSelectedProduct(null);
   };
 
   return (
@@ -80,7 +94,11 @@ const Home = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.slice(0, 6).map((product) => (
-              <div key={product.id} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
+              <div 
+                key={product.id} 
+                className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 cursor-pointer"
+                onClick={() => openProductModal(product)}
+              >
                 <div className="relative h-64">
                   <img 
                     src={product.images[0]} 
@@ -110,16 +128,19 @@ const Home = () => {
                     </div>
                   </div>
                   <div className="flex gap-2">
-                    <Link 
-                      to={`/product/${product.id}`}
+                    <button 
                       className="flex-1 bg-yellow-800 text-white px-4 py-2 rounded-lg hover:bg-yellow-700 transition-colors text-center font-semibold"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        openProductModal(product);
+                      }}
                     >
                       Xem chi tiết
-                    </Link>
+                    </button>
                     <button 
-                      onClick={() => handleQuickAdd(product)}
+                      onClick={(e) => handleQuickAdd(product, e)}
                       className="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors"
-                      title="Thêm vào giỏ hàng"
+                      title="Mua ngay"
                     >
                       <i className="fas fa-shopping-cart"></i>
                     </button>
@@ -260,6 +281,13 @@ const Home = () => {
       >
         <i className="fas fa-arrow-up"></i>
       </button>
+
+      {/* Product Modal */}
+      <ProductModal 
+        product={selectedProduct}
+        isOpen={isModalOpen}
+        onClose={closeProductModal}
+      />
     </div>
   );
 };
