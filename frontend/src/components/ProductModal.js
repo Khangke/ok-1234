@@ -45,9 +45,14 @@ const ProductModal = ({ product, isOpen, onClose }) => {
           <h2 className="font-display text-responsive-xl font-bold text-gray-800 pr-4">{product.title}</h2>
           <button
             onClick={onClose}
-            className="text-gray-500 hover:text-gray-700 w-12 h-12 rounded-full hover:bg-gray-100 flex items-center justify-center transition-colors touch-target flex-shrink-0"
+            className="text-gray-500 hover:text-red-500 hover:bg-red-50 w-12 h-12 rounded-full flex items-center justify-center transition-all touch-target flex-shrink-0 border-2 border-transparent hover:border-red-200"
+            aria-label="Đóng modal"
           >
-            <i className="fas fa-times text-xl"></i>
+            {/* Fallback if Font Awesome doesn't load */}
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+            <i className="fas fa-times text-xl absolute"></i>
           </button>
         </div>
 

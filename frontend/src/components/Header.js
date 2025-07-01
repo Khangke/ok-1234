@@ -62,10 +62,14 @@ const Header = () => {
               <p className="text-xs text-gray-600">Hotline 24/7</p>
             </div>
             <button 
-              className="md:hidden text-gray-700 hover:text-yellow-800 w-12 h-12 rounded-lg hover:bg-gray-100 flex items-center justify-center transition-all touch-target"
+              className="md:hidden text-gray-700 hover:text-yellow-800 w-12 h-12 rounded-lg hover:bg-yellow-50 flex items-center justify-center transition-all touch-target"
               onClick={toggleMobileMenu}
             >
-              <i className="fas fa-bars text-xl"></i>
+              {/* Fallback hamburger */}
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+              <i className="fas fa-bars text-xl absolute"></i>
             </button>
           </div>
         </div>
@@ -83,8 +87,12 @@ const Header = () => {
               </div>
               <span className="font-display font-bold text-lg">{companyInfo.name}</span>
             </div>
-            <button onClick={toggleMobileMenu} className="text-gray-600 w-10 h-10 rounded-full hover:bg-gray-100 flex items-center justify-center transition-colors touch-target">
-              <i className="fas fa-times text-xl"></i>
+            <button onClick={toggleMobileMenu} className="text-gray-600 hover:text-red-500 w-12 h-12 rounded-full hover:bg-red-50 flex items-center justify-center transition-all touch-target">
+              {/* Fallback SVG */}
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+              <i className="fas fa-times text-xl absolute"></i>
             </button>
           </div>
           <nav className="space-y-4">
