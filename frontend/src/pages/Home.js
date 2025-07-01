@@ -132,41 +132,41 @@ const Home = () => {
       </section>
 
       {/* Featured Products */}
-      <section className="mobile-section bg-white">
-        <div className="mobile-container">
-          <div className="text-center mb-12">
-            <h2 className="font-display mobile-title text-gray-800 animate-fade-in">
-              Sản Phẩm <span className="text-yellow-800">Nổi Bật</span>
+      <section className="py-8 md:py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold font-display text-gray-800 animate-fade-in">
+              SẢN PHẨM <span className="text-yellow-800">NỔI BẬT</span>
             </h2>
-            <p className="mobile-subtitle text-gray-600 max-w-2xl mx-auto animate-fade-in animate-delay-200">
+            <p className="text-sm md:text-base text-gray-600 max-w-2xl mx-auto mt-4 animate-fade-in animate-delay-200">
               Bộ sưu tập trầm hương cao cấp được tuyển chọn từ những vùng đất nổi tiếng nhất Việt Nam
             </p>
           </div>
           
-          <div className="mobile-grid md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {products.slice(0, 6).map((product, index) => (
               <div 
                 key={product.id} 
-                className="mobile-product-card card-enhanced cursor-pointer animate-fade-in"
+                className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer animate-fade-in overflow-hidden"
                 style={{ animationDelay: `${index * 0.1}s` }}
                 onClick={() => openProductModal(product)}
               >
-                <div className="mobile-product-image">
+                <div className="relative h-48 md:h-56 overflow-hidden">
                   <img 
                     src={product.images[0]} 
                     alt={product.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute top-4 left-4">
-                    <span className={`text-xs px-3 py-1 rounded-full ${getBadgeColor(product.badgeColor)}`}>
+                  <div className="absolute top-3 left-3">
+                    <span className={`text-xs px-2 py-1 rounded-full font-medium ${getBadgeColor(product.badgeColor)}`}>
                       {product.badge}
                     </span>
                   </div>
                 </div>
-                <div className="mobile-product-content">
-                  <h3 className="mobile-product-title line-clamp-2">{product.title}</h3>
-                  <p className="mobile-text text-gray-600 mb-4 line-clamp-2">{product.description}</p>
-                  <div className="flex items-center justify-between mb-4">
+                <div className="p-4">
+                  <h3 className="text-base md:text-lg font-semibold text-gray-800 mb-2 line-clamp-2">{product.title}</h3>
+                  <p className="text-sm text-gray-600 mb-3 line-clamp-2">{product.description}</p>
+                  <div className="flex items-center justify-between mb-3">
                     <div>
                       <span className="mobile-product-price">{product.priceDisplay}</span>
                       <div className="flex items-center mt-1">
