@@ -746,8 +746,41 @@ select:focus {
     }
 }
 
-/* Desktop enhancements */
-@media (min-width: 769px) {
+/* Tablet Optimizations (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .container {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+    
+    .section-mobile {
+        padding: 60px 24px;
+    }
+    
+    .btn-mobile {
+        min-height: 44px;
+        padding: 12px 20px;
+        font-size: 15px;
+    }
+    
+    .modal-mobile {
+        margin: 16px;
+        max-height: calc(100vh - 32px);
+        border-radius: 24px;
+    }
+    
+    /* Tablet grid adjustments */
+    .lg\:grid-cols-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .xl\:grid-cols-4 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Desktop Enhancements (1024px+) */
+@media (min-width: 1024px) {
     /* Smooth scrolling */
     .smooth-scroll {
         scroll-behavior: smooth;
@@ -759,11 +792,105 @@ select:focus {
         transition: transform 0.2s ease;
     }
     
+    .card-enhanced:hover {
+        transform: translateY(-4px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(139, 69, 19, 0.15);
+    }
+    
+    /* Desktop button enhancements */
+    .btn-enhanced:hover::before {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .btn-enhanced:hover {
+        transform: translateY(-1px);
+    }
+    
     /* Better focus states for keyboard navigation */
     .focus-enhanced:focus {
         outline: 2px solid #d97706;
         outline-offset: 2px;
         box-shadow: 0 0 0 4px rgba(217, 119, 6, 0.1);
+    }
+    
+    /* Desktop-specific animations */
+    .desktop-hover:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+}
+
+/* Large Desktop (1440px+) */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+    
+    .section-mobile {
+        padding: 80px 32px;
+    }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+    /* Optimize for retina displays */
+    .shadow-lg {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+    
+    .border {
+        border-width: 0.5px;
+    }
+}
+
+/* Landscape Mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .mobile-hero {
+        min-height: 100vh;
+        padding: 60px 16px 40px;
+    }
+    
+    .mobile-hero-title {
+        font-size: clamp(1.5rem, 6vw, 2.5rem);
+    }
+    
+    .mobile-modal {
+        max-height: calc(100vh - 8px);
+        margin: 4px;
+    }
+    
+    .mobile-modal-content {
+        max-height: calc(100vh - 80px);
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    /* Add dark mode styles if needed */
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .animate-fade-in,
+    .animate-slide-left,
+    .animate-slide-right,
+    .animate-scale-in,
+    .animate-float,
+    .animate-pulse-soft {
+        animation: none !important;
+    }
+    
+    .card-enhanced:hover,
+    .btn-enhanced:hover {
+        transform: none !important;
     }
 }
 
