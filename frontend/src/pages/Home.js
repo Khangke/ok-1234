@@ -281,32 +281,32 @@ const Home = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-white">
+      <section className="py-12 md:py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-              Khách Hàng <span className="text-yellow-800">Nói Gì</span>
+          <div className="text-center mb-8 md:mb-16">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold font-display text-gray-800 mb-4">
+              KHÁCH HÀNG <span className="text-yellow-800">NÓI GÌ</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-sm md:text-base lg:text-xl text-gray-600 max-w-2xl mx-auto">
               Những phản hồi chân thành từ khách hàng đã tin tưởng và sử dụng sản phẩm của chúng tôi
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
             {testimonials.map((testimonial) => (
-              <div key={testimonial.id} className="bg-gradient-to-br from-white to-yellow-50 p-6 rounded-2xl shadow-lg border-l-4 border-yellow-600">
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-yellow-800 rounded-full flex items-center justify-center mr-4">
-                    <i className="fas fa-user text-white"></i>
+              <div key={testimonial.id} className="bg-gradient-to-br from-white to-yellow-50 p-4 md:p-6 rounded-xl md:rounded-2xl shadow-lg border-l-4 border-yellow-600">
+                <div className="flex items-center mb-3 md:mb-4">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-yellow-800 rounded-full flex items-center justify-center mr-3 md:mr-4 flex-shrink-0">
+                    <i className="fas fa-user text-white text-sm md:text-base"></i>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-800">{testimonial.name}</h4>
-                    <p className="text-sm text-gray-600">{testimonial.location}</p>
+                    <h4 className="text-sm md:text-base font-semibold text-gray-800">{testimonial.name}</h4>
+                    <p className="text-xs md:text-sm text-gray-600">{testimonial.location}</p>
                   </div>
                 </div>
-                <div className="flex mb-3 text-yellow-400">
+                <div className="flex mb-2 md:mb-3 text-yellow-400">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <i key={i} className="fas fa-star"></i>
+                    <i key={i} className="fas fa-star text-sm md:text-base"></i>
                   ))}
                 </div>
                 <p className="text-gray-700 italic">"{testimonial.comment}"</p>
