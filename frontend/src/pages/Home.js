@@ -72,11 +72,17 @@ const Home = () => {
         </div>
 
         {/* Floating Elements */}
-        <div className="absolute top-1/4 left-10 text-yellow-200 opacity-20 animate-float">
-          <i className="fas fa-spa text-6xl"></i>
+        <div className="absolute top-1/4 left-4 md:left-10 text-yellow-200 opacity-20 animate-float">
+          <svg className="w-16 h-16 md:w-24 md:h-24" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+          </svg>
+          <i className="fas fa-spa text-4xl md:text-6xl absolute top-0 left-0"></i>
         </div>
-        <div className="absolute bottom-1/4 right-10 text-yellow-200 opacity-20 animate-float-delayed">
-          <i className="fas fa-leaf text-4xl"></i>
+        <div className="absolute bottom-1/4 right-4 md:right-10 text-yellow-200 opacity-20 animate-float-delayed">
+          <svg className="w-12 h-12 md:w-16 md:h-16" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,8 17,8 17,8Z"/>
+          </svg>
+          <i className="fas fa-leaf text-2xl md:text-4xl absolute top-0 left-0"></i>
         </div>
       </section>
 
