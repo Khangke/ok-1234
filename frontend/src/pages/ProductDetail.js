@@ -33,13 +33,16 @@ const ProductDetail = () => {
     const price = (product.price.min + product.price.max) / 2; // Mid-range price
     addToCart(product, selectedSizeValue, quantity, price);
     
-    // Show success message or redirect to cart
-    alert(`Đã thêm ${quantity} ${product.title} (${selectedSizeValue}) vào giỏ hàng!`);
+    // Chuyển thẳng đến trang thanh toán
+    navigate('/checkout');
   };
 
   const handleBuyNow = () => {
-    handleAddToCart();
-    navigate('/cart');
+    const selectedSizeValue = product.sizes[selectedSize];
+    const price = (product.price.min + product.price.max) / 2;
+    addToCart(product, selectedSizeValue, quantity, price);
+    // Chuyển thẳng đến trang thanh toán
+    navigate('/checkout');
   };
 
   const specifications = [
