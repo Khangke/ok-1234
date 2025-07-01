@@ -68,26 +68,26 @@ const Home = () => {
           />
         </div>
         
-        <div className="container mx-auto px-4 py-20 relative z-10">
-          <div className="max-w-4xl mx-auto text-center text-white px-4">
-            <h1 className="font-display text-responsive-hero font-bold mb-6 animate-fade-in leading-tight">
+        <div className="mobile-hero relative z-10">
+          <div className="max-w-4xl mx-auto text-white">
+            <h1 className="font-display mobile-hero-title animate-fade-in leading-tight">
               Trầm Hương<br/>
               <span className="text-yellow-300">Cao Cấp Việt Nam</span>
             </h1>
-            <p className="text-responsive-lg mb-8 opacity-90 max-w-2xl mx-auto animate-fade-in animate-delay-200 leading-relaxed">
+            <p className="mobile-hero-subtitle mx-auto animate-fade-in animate-delay-200">
               Khám phá bộ sưu tập trầm hương tự nhiên, mang đến sự bình an và thịnh vượng cho cuộc sống
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in animate-delay-400">
+            <div className="mobile-hero-buttons animate-fade-in animate-delay-400">
               <Link 
                 to="/products"
-                className="bg-gradient-to-r from-yellow-800 to-yellow-600 text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 btn-enhanced btn-mobile touch-target text-responsive-base"
+                className="bg-gradient-to-r from-yellow-800 to-yellow-600 text-white btn-mobile font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 btn-enhanced"
               >
                 <i className="fas fa-shopping-bag mr-2"></i>
                 Khám phá sản phẩm
               </Link>
               <Link 
                 to="/contact"
-                className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-yellow-800 transition-all duration-300 btn-enhanced btn-mobile touch-target text-responsive-base"
+                className="border-2 border-white text-white btn-mobile font-semibold hover:bg-white hover:text-yellow-800 transition-all duration-300 btn-enhanced"
               >
                 <i className="fas fa-phone mr-2"></i>
                 Liên hệ tư vấn
@@ -112,26 +112,26 @@ const Home = () => {
       </section>
 
       {/* Featured Products */}
-      <section className="py-16 md:py-20 bg-white section-mobile">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="font-display text-responsive-3xl font-bold text-gray-800 mb-4 animate-fade-in">
+      <section className="mobile-section bg-white">
+        <div className="mobile-container">
+          <div className="text-center mb-12">
+            <h2 className="font-display mobile-title text-gray-800 animate-fade-in">
               Sản Phẩm <span className="text-yellow-800">Nổi Bật</span>
             </h2>
-            <p className="text-responsive-lg text-gray-600 max-w-2xl mx-auto animate-fade-in animate-delay-200">
+            <p className="mobile-subtitle text-gray-600 max-w-2xl mx-auto animate-fade-in animate-delay-200">
               Bộ sưu tập trầm hương cao cấp được tuyển chọn từ những vùng đất nổi tiếng nhất Việt Nam
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="mobile-grid md:grid-cols-2 lg:grid-cols-3">
             {products.slice(0, 6).map((product, index) => (
               <div 
                 key={product.id} 
-                className="bg-white rounded-2xl shadow-lg overflow-hidden card-enhanced cursor-pointer animate-fade-in"
+                className="mobile-product-card card-enhanced cursor-pointer animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
                 onClick={() => openProductModal(product)}
               >
-                <div className="relative h-64">
+                <div className="mobile-product-image">
                   <img 
                     src={product.images[0]} 
                     alt={product.title}
@@ -161,7 +161,7 @@ const Home = () => {
                   </div>
                   <div className="flex gap-2">
                     <button 
-                      className="flex-1 bg-yellow-800 text-white px-4 py-3 rounded-lg hover:bg-yellow-700 transition-all text-center font-semibold btn-enhanced touch-target text-responsive-sm"
+                      className="flex-1 bg-yellow-800 text-white btn-mobile hover:bg-yellow-700 transition-all text-center font-semibold btn-enhanced"
                       onClick={(e) => {
                         e.stopPropagation();
                         openProductModal(product);
@@ -171,7 +171,7 @@ const Home = () => {
                     </button>
                     <button 
                       onClick={(e) => handleQuickAdd(product, e)}
-                      className="bg-green-100 text-green-700 hover:bg-green-200 px-4 py-3 rounded-lg hover:scale-105 transition-all btn-enhanced touch-target min-w-[48px]"
+                      className="bg-green-100 text-green-700 hover:bg-green-200 touch-target rounded-lg hover:scale-105 transition-all btn-enhanced flex-shrink-0"
                       title="Thêm vào giỏ hàng"
                     >
                       <i className="fas fa-cart-plus"></i>
