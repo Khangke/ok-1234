@@ -143,12 +143,12 @@ const Home = () => {
                     </span>
                   </div>
                 </div>
-                <div className="p-4 md:p-6">
-                  <h3 className="font-display text-responsive-xl font-semibold text-gray-800 mb-3 line-clamp-2">{product.title}</h3>
-                  <p className="text-responsive-sm text-gray-600 mb-4 line-clamp-2">{product.description}</p>
+                <div className="mobile-product-content">
+                  <h3 className="mobile-product-title line-clamp-2">{product.title}</h3>
+                  <p className="mobile-text text-gray-600 mb-4 line-clamp-2">{product.description}</p>
                   <div className="flex items-center justify-between mb-4">
                     <div>
-                      <span className="text-responsive-xl font-bold text-yellow-800">{product.priceDisplay}</span>
+                      <span className="mobile-product-price">{product.priceDisplay}</span>
                       <div className="flex items-center mt-1">
                         <div className="text-yellow-400 mr-2">
                           {[...Array(product.rating)].map((_, i) => (
