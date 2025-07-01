@@ -289,15 +289,116 @@ select:focus {
     animation: spin 1s linear infinite;
 }
 
-/* Mobile responsive adjustments */
+/* Enhanced Mobile & Desktop Optimizations */
+
+/* Touch-friendly interactions */
+.touch-target {
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Improved button styles */
+.btn-enhanced {
+    position: relative;
+    overflow: hidden;
+    transform: translateZ(0);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-enhanced::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    transform: translate(-50%, -50%);
+}
+
+.btn-enhanced:hover::before {
+    width: 100%;
+    height: 100%;
+}
+
+.btn-enhanced:active {
+    transform: scale(0.98);
+}
+
+/* Enhanced card hover effects */
+.card-enhanced {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+.card-enhanced:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(139, 69, 19, 0.15);
+}
+
+/* Mobile-specific optimizations */
 @media (max-width: 768px) {
     .container {
         padding-left: 1rem;
         padding-right: 1rem;
     }
     
-    .text-responsive {
-        font-size: clamp(1.5rem, 4vw, 2.5rem);
+    /* Reduce motion for mobile performance */
+    .card-enhanced:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(139, 69, 19, 0.1);
+    }
+    
+    /* Larger touch targets */
+    .btn-mobile {
+        min-height: 48px;
+        padding: 12px 24px;
+        font-size: 16px;
+    }
+    
+    /* Better modal on mobile */
+    .modal-mobile {
+        margin: 8px;
+        max-height: calc(100vh - 16px);
+        border-radius: 16px;
+    }
+    
+    /* Prevent zoom on input focus */
+    input, select, textarea {
+        font-size: 16px;
+    }
+    
+    /* Better spacing for mobile */
+    .section-mobile {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+}
+
+/* Desktop enhancements */
+@media (min-width: 769px) {
+    /* Smooth scrolling */
+    .smooth-scroll {
+        scroll-behavior: smooth;
+    }
+    
+    /* Enhanced hover states */
+    .hover-lift:hover {
+        transform: translateY(-2px);
+        transition: transform 0.2s ease;
+    }
+    
+    /* Better focus states for keyboard navigation */
+    .focus-enhanced:focus {
+        outline: 2px solid #d97706;
+        outline-offset: 2px;
+        box-shadow: 0 0 0 4px rgba(217, 119, 6, 0.1);
     }
 }
 
