@@ -16,8 +16,33 @@ const Home = () => {
     const defaultSize = product.sizes[0];
     const midPrice = (product.price.min + product.price.max) / 2;
     addToCart(product, defaultSize, 1, midPrice);
-    // Chuyển thẳng đến trang thanh toán
-    navigate('/checkout');
+    
+    // Show success notification
+    showAddToCartSuccess(product.title, defaultSize);
+  };
+
+  const showAddToCartSuccess = (productTitle, size) => {
+    // Create temporary toast notification
+    const toast = document.createElement('div');
+    toast.className = 'fixed top-24 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 animate-slide-right';
+    toast.innerHTML = `
+      <div class="flex items-center space-x-2">
+        <i class="fas fa-check-circle"></i>
+        <span>Đã thêm "${productTitle}" (${size}) vào giỏ hàng!</span>
+      </div>
+    `;
+    
+    document.body.appendChild(toast);
+    
+    // Auto remove after 3 seconds
+    setTimeout(() => {
+      toast.style.transform = 'translateX(100%)';
+      setTimeout(() => {
+        if (document.body.contains(toast)) {
+          document.body.removeChild(toast);
+        }
+      }, 300);
+    }, 3000);
   };
 
   const openProductModal = (product) => {
