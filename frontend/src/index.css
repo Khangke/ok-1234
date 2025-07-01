@@ -615,42 +615,134 @@ select:focus {
     }
 }
 
-/* Mobile-specific optimizations */
+/* Mobile-Specific Optimizations (0-768px) */
 @media (max-width: 768px) {
+    /* Container adjustments */
     .container {
-        padding-left: 1rem;
-        padding-right: 1rem;
+        padding-left: 16px;
+        padding-right: 16px;
+        max-width: 100%;
     }
     
-    /* Reduce motion for mobile performance */
+    /* Override card hover for mobile - use active states instead */
     .card-enhanced:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 20px rgba(139, 69, 19, 0.1);
+        transform: none;
+        box-shadow: 0 2px 10px rgba(139, 69, 19, 0.1);
     }
     
-    /* Larger touch targets */
+    .card-enhanced:active {
+        transform: scale(0.98);
+        box-shadow: 0 8px 25px rgba(139, 69, 19, 0.15);
+    }
+    
+    /* Mobile button sizing */
     .btn-mobile {
         min-height: 48px;
-        padding: 12px 24px;
+        padding: 14px 24px;
         font-size: 16px;
+        font-weight: 500;
+        border-radius: 12px;
     }
     
-    /* Better modal on mobile */
+    /* Modal optimizations */
     .modal-mobile {
         margin: 8px;
         max-height: calc(100vh - 16px);
-        border-radius: 16px;
+        border-radius: 20px;
+        overflow: hidden;
     }
     
-    /* Prevent zoom on input focus */
+    /* Prevent zoom on input focus (iOS Safari) */
     input, select, textarea {
-        font-size: 16px;
+        font-size: 16px !important;
+        border-radius: 8px;
+        padding: 12px 16px;
+        line-height: 1.5;
     }
     
-    /* Better spacing for mobile */
+    /* Mobile section spacing */
     .section-mobile {
-        padding-top: 3rem;
-        padding-bottom: 3rem;
+        padding: 48px 16px;
+    }
+    
+    /* Mobile typography overrides */
+    h1 { font-size: clamp(1.75rem, 6vw, 3rem) !important; }
+    h2 { font-size: clamp(1.5rem, 5vw, 2.5rem) !important; }
+    h3 { font-size: clamp(1.25rem, 4vw, 2rem) !important; }
+    h4 { font-size: clamp(1.125rem, 3vw, 1.5rem) !important; }
+    
+    p, span, div {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+    
+    /* Mobile grid adjustments */
+    .grid {
+        gap: 16px;
+    }
+    
+    .md\:grid-cols-2 {
+        grid-template-columns: 1fr;
+    }
+    
+    .lg\:grid-cols-3 {
+        grid-template-columns: 1fr;
+    }
+    
+    .xl\:grid-cols-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Mobile padding/margin overrides */
+    .p-6 { padding: 16px !important; }
+    .p-8 { padding: 20px !important; }
+    .py-20 { padding-top: 48px !important; padding-bottom: 48px !important; }
+    .py-16 { padding-top: 40px !important; padding-bottom: 40px !important; }
+    .mb-16 { margin-bottom: 32px !important; }
+    .mb-12 { margin-bottom: 24px !important; }
+    .mb-8 { margin-bottom: 20px !important; }
+    
+    /* Mobile flex adjustments */
+    .flex-col.sm\:flex-row {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    /* Mobile image sizing */
+    .h-64 { height: 200px !important; }
+    .h-96 { height: 250px !important; }
+    
+    /* Mobile text sizing overrides */
+    .text-5xl, .text-4xl { font-size: clamp(1.75rem, 6vw, 2.5rem) !important; }
+    .text-3xl { font-size: clamp(1.5rem, 5vw, 2rem) !important; }
+    .text-2xl { font-size: clamp(1.25rem, 4vw, 1.5rem) !important; }
+    .text-xl { font-size: clamp(1.125rem, 3vw, 1.25rem) !important; }
+    .text-lg { font-size: 16px !important; }
+    
+    /* Mobile border radius */
+    .rounded-2xl { border-radius: 16px !important; }
+    .rounded-3xl { border-radius: 20px !important; }
+    
+    /* Mobile shadow adjustments */
+    .shadow-lg { box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important; }
+    .shadow-xl { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15) !important; }
+    .shadow-2xl { box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2) !important; }
+    
+    /* Mobile sticky elements */
+    .sticky {
+        position: -webkit-sticky;
+        position: sticky;
+    }
+    
+    /* Mobile scroll behavior */
+    .overflow-x-auto {
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    
+    .overflow-x-auto::-webkit-scrollbar {
+        display: none;
     }
 }
 
