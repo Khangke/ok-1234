@@ -309,7 +309,7 @@ const Home = () => {
                     <i key={i} className="fas fa-star text-sm md:text-base"></i>
                   ))}
                 </div>
-                <p className="text-gray-700 italic">"{testimonial.comment}"</p>
+                <p className="text-sm md:text-base text-gray-700 italic leading-relaxed">"{testimonial.comment}"</p>
               </div>
             ))}
           </div>
@@ -321,9 +321,9 @@ const Home = () => {
         href={`https://wa.me/${companyInfo.whatsapp}`} 
         target="_blank" 
         rel="noopener noreferrer"
-        className="fixed bottom-24 right-8 w-14 h-14 bg-green-500 text-white rounded-full shadow-lg hover:bg-green-600 transition-all flex items-center justify-center z-40 animate-pulse"
+        className="fixed bottom-20 md:bottom-24 right-4 md:right-8 w-12 h-12 md:w-14 md:h-14 bg-green-500 text-white rounded-full shadow-lg hover:bg-green-600 transition-all flex items-center justify-center z-40 animate-pulse"
       >
-        <i className="fab fa-whatsapp text-2xl"></i>
+        <i className="fab fa-whatsapp text-xl md:text-2xl"></i>
       </a>
 
       {/* Scroll to Top Button */}
