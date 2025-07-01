@@ -45,17 +45,25 @@ const Header = () => {
                 }`}
               >
                 {item.name}
-                {item.name === 'Giỏ hàng' && totalItems > 0 && (
-                  <span className="ml-1 bg-yellow-800 text-white text-xs px-2 py-1 rounded-full animate-pulse-soft">
-                    {totalItems}
-                  </span>
-                )}
               </Link>
             ))}
           </nav>
           
-          {/* Contact Info & Mobile Menu Toggle */}
-          <div className="flex items-center space-x-4">
+          {/* Cart Icon & Contact Info & Mobile Menu Toggle */}
+          <div className="flex items-center space-x-3 lg:space-x-4">
+            {/* Cart Icon */}
+            <Link 
+              to="/cart" 
+              className="relative text-gray-700 hover:text-yellow-800 w-12 h-12 rounded-lg hover:bg-yellow-50 flex items-center justify-center transition-all touch-target group"
+            >
+              <i className="fas fa-shopping-cart text-xl"></i>
+              {totalItems > 0 && (
+                <span className="absolute -top-1 -right-1 bg-yellow-800 text-white text-xs px-2 py-1 rounded-full min-w-[20px] h-5 flex items-center justify-center animate-pulse-soft font-semibold">
+                  {totalItems}
+                </span>
+              )}
+            </Link>
+            
             <div className="hidden lg:block text-right">
               <p className="text-sm font-medium text-gray-800">{companyInfo.phone}</p>
               <p className="text-xs text-gray-600">Hotline 24/7</p>
