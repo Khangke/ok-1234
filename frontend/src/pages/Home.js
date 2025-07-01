@@ -44,25 +44,25 @@ const Home = () => {
         </div>
         
         <div className="container mx-auto px-4 py-20 relative z-10">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <h1 className="font-display text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
+          <div className="max-w-4xl mx-auto text-center text-white px-4">
+            <h1 className="font-display text-responsive-hero font-bold mb-6 animate-fade-in leading-tight">
               Trầm Hương<br/>
               <span className="text-yellow-300">Cao Cấp Việt Nam</span>
             </h1>
-            <p className="text-xl md:text-2xl mb-8 opacity-90 max-w-2xl mx-auto animate-fade-in">
+            <p className="text-responsive-lg mb-8 opacity-90 max-w-2xl mx-auto animate-fade-in animate-delay-200 leading-relaxed">
               Khám phá bộ sưu tập trầm hương tự nhiên, mang đến sự bình an và thịnh vượng cho cuộc sống
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in animate-delay-400">
               <Link 
                 to="/products"
-                className="bg-gradient-to-r from-yellow-800 to-yellow-600 text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                className="bg-gradient-to-r from-yellow-800 to-yellow-600 text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 btn-enhanced btn-mobile touch-target text-responsive-base"
               >
                 <i className="fas fa-shopping-bag mr-2"></i>
                 Khám phá sản phẩm
               </Link>
               <Link 
                 to="/contact"
-                className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-yellow-800 transition-all duration-300"
+                className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-yellow-800 transition-all duration-300 btn-enhanced btn-mobile touch-target text-responsive-base"
               >
                 <i className="fas fa-phone mr-2"></i>
                 Liên hệ tư vấn
@@ -81,22 +81,23 @@ const Home = () => {
       </section>
 
       {/* Featured Products */}
-      <section className="py-20 bg-white">
+      <section className="py-16 md:py-20 bg-white section-mobile">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="font-display text-responsive-3xl font-bold text-gray-800 mb-4 animate-fade-in">
               Sản Phẩm <span className="text-yellow-800">Nổi Bật</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-responsive-lg text-gray-600 max-w-2xl mx-auto animate-fade-in animate-delay-200">
               Bộ sưu tập trầm hương cao cấp được tuyển chọn từ những vùng đất nổi tiếng nhất Việt Nam
             </p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {products.slice(0, 6).map((product) => (
+            {products.slice(0, 6).map((product, index) => (
               <div 
                 key={product.id} 
-                className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 cursor-pointer"
+                className="bg-white rounded-2xl shadow-lg overflow-hidden card-enhanced cursor-pointer animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
                 onClick={() => openProductModal(product)}
               >
                 <div className="relative h-64">
@@ -111,12 +112,12 @@ const Home = () => {
                     </span>
                   </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="font-display text-2xl font-semibold text-gray-800 mb-3">{product.title}</h3>
-                  <p className="text-gray-600 mb-4 line-clamp-2">{product.description}</p>
+                <div className="p-4 md:p-6">
+                  <h3 className="font-display text-responsive-xl font-semibold text-gray-800 mb-3 line-clamp-2">{product.title}</h3>
+                  <p className="text-responsive-sm text-gray-600 mb-4 line-clamp-2">{product.description}</p>
                   <div className="flex items-center justify-between mb-4">
                     <div>
-                      <span className="text-2xl font-bold text-yellow-800">{product.priceDisplay}</span>
+                      <span className="text-responsive-xl font-bold text-yellow-800">{product.priceDisplay}</span>
                       <div className="flex items-center mt-1">
                         <div className="text-yellow-400 mr-2">
                           {[...Array(product.rating)].map((_, i) => (
@@ -129,7 +130,7 @@ const Home = () => {
                   </div>
                   <div className="flex gap-2">
                     <button 
-                      className="flex-1 bg-yellow-800 text-white px-4 py-2 rounded-lg hover:bg-yellow-700 transition-colors text-center font-semibold"
+                      className="flex-1 bg-yellow-800 text-white px-4 py-3 rounded-lg hover:bg-yellow-700 transition-all text-center font-semibold btn-enhanced touch-target text-responsive-sm"
                       onClick={(e) => {
                         e.stopPropagation();
                         openProductModal(product);
@@ -139,7 +140,7 @@ const Home = () => {
                     </button>
                     <button 
                       onClick={(e) => handleQuickAdd(product, e)}
-                      className="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors"
+                      className="bg-gray-200 text-gray-700 px-4 py-3 rounded-lg hover:bg-gray-300 transition-all btn-enhanced touch-target min-w-[48px]"
                       title="Mua ngay"
                     >
                       <i className="fas fa-shopping-cart"></i>
