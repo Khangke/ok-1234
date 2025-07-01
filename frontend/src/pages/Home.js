@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { products, testimonials, companyInfo, getBadgeColor } from '../data/mockData';
 import { useCart } from '../contexts/CartContext';
 import ProductModal from '../components/ProductModal';
+import { bannerImages } from '../data/bannerImages';
 
 const Home = () => {
   const { addToCart } = useCart();
