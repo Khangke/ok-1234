@@ -171,10 +171,10 @@ const Home = () => {
                     </button>
                     <button 
                       onClick={(e) => handleQuickAdd(product, e)}
-                      className="bg-gray-200 text-gray-700 px-4 py-3 rounded-lg hover:bg-gray-300 transition-all btn-enhanced touch-target min-w-[48px]"
-                      title="Mua ngay"
+                      className="bg-green-100 text-green-700 hover:bg-green-200 px-4 py-3 rounded-lg hover:scale-105 transition-all btn-enhanced touch-target min-w-[48px]"
+                      title="Thêm vào giỏ hàng"
                     >
-                      <i className="fas fa-shopping-cart"></i>
+                      <i className="fas fa-cart-plus"></i>
                     </button>
                   </div>
                 </div>
