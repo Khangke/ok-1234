@@ -57,13 +57,64 @@ const Home = () => {
 
   return (
     <div className="pt-20">
-      {/* Hero Section */}
+      {/* Hero Banner Carousel */}
       <section className="relative min-h-screen overflow-hidden">
-        <img 
-          src="https://tramhuongviet.com/wp-content/themes/yootheme/cache/b3/banner-trang-home-b3591009.jpeg" 
-          alt="Vòng Trầm Hương Nam Banner"
-          className="w-full h-full min-h-screen object-cover"
-        />
+        <div className="banner-carousel relative w-full h-screen">
+          <div className="carousel-container">
+            <div className="carousel-slide active">
+              <img 
+                src="https://tramhuongviet.com/wp-content/themes/yootheme/cache/b3/banner-trang-home-b3591009.jpeg" 
+                alt="Nhang Nụ Trầm Hương - Sơn Mộc Hương"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="carousel-slide">
+              <img 
+                src="https://tramhuongviet.com/wp-content/themes/yootheme/cache/b3/banner-trang-home-b3591009.jpeg" 
+                alt="Vòng Trầm Hương Nam"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="carousel-slide">
+              <img 
+                src="https://tramhuongviet.com/wp-content/themes/yootheme/cache/b3/banner-trang-home-b3591009.jpeg" 
+                alt="Ưu Điểm Vòng Trầm Hương Chìm Nước"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="carousel-slide">
+              <img 
+                src="https://tramhuongviet.com/wp-content/themes/yootheme/cache/b3/banner-trang-home-b3591009.jpeg" 
+                alt="Đặc Điểm Nhang Trầm Sơn Mộc Hương"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="carousel-slide">
+              <img 
+                src="https://tramhuongviet.com/wp-content/themes/yootheme/cache/b3/banner-trang-home-b3591009.jpeg" 
+                alt="Vòng 108 Hạt Trầm Cần Chìm"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+          
+          {/* Carousel Indicators */}
+          <div className="carousel-indicators absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
+            <button className="carousel-indicator active" data-slide="0"></button>
+            <button className="carousel-indicator" data-slide="1"></button>
+            <button className="carousel-indicator" data-slide="2"></button>
+            <button className="carousel-indicator" data-slide="3"></button>
+            <button className="carousel-indicator" data-slide="4"></button>
+          </div>
+          
+          {/* Navigation Arrows */}
+          <button className="carousel-nav carousel-prev absolute left-6 top-1/2 transform -translate-y-1/2 z-10">
+            <i className="fas fa-chevron-left text-white text-2xl"></i>
+          </button>
+          <button className="carousel-nav carousel-next absolute right-6 top-1/2 transform -translate-y-1/2 z-10">
+            <i className="fas fa-chevron-right text-white text-2xl"></i>
+          </button>
+        </div>
       </section>
 
       {/* Featured Products */}
