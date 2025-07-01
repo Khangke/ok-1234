@@ -16,8 +16,8 @@ code {
         monospace;
 }
 
-/* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+/* Google Fonts - Optimized loading */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap&font-display=swap');
 
 /* Font Classes */
 .font-display {
@@ -26,6 +26,46 @@ code {
 
 body {
     font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Responsive Typography */
+.text-responsive-xs {
+    font-size: clamp(0.75rem, 2vw, 0.875rem);
+}
+
+.text-responsive-sm {
+    font-size: clamp(0.875rem, 2.5vw, 1rem);
+}
+
+.text-responsive-base {
+    font-size: clamp(1rem, 3vw, 1.125rem);
+}
+
+.text-responsive-lg {
+    font-size: clamp(1.125rem, 4vw, 1.25rem);
+}
+
+.text-responsive-xl {
+    font-size: clamp(1.25rem, 5vw, 1.5rem);
+}
+
+.text-responsive-2xl {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+}
+
+.text-responsive-3xl {
+    font-size: clamp(2rem, 8vw, 3rem);
+}
+
+.text-responsive-4xl {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+}
+
+.text-responsive-hero {
+    font-size: clamp(2rem, 8vw, 5rem);
+    line-height: 1.1;
 }
 
 /* Custom Animations */
