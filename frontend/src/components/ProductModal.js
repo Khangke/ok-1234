@@ -38,36 +38,36 @@ const ProductModal = ({ product, isOpen, onClose }) => {
   ];
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-3xl max-w-6xl w-full max-h-[95vh] overflow-y-auto shadow-2xl transform transition-all duration-300 scale-100">
+    <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-50 p-2 md:p-4">
+      <div className="bg-white rounded-2xl md:rounded-3xl max-w-6xl w-full max-h-[95vh] overflow-y-auto shadow-2xl transform transition-all duration-300 scale-100 modal-mobile animate-scale-in">
         {/* Header */}
-        <div className="sticky top-0 bg-white z-10 p-6 border-b border-gray-200 flex justify-between items-center rounded-t-3xl">
-          <h2 className="font-display text-2xl font-bold text-gray-800">{product.title}</h2>
+        <div className="sticky top-0 bg-white z-10 p-4 md:p-6 border-b border-gray-200 flex justify-between items-center rounded-t-2xl md:rounded-t-3xl">
+          <h2 className="font-display text-responsive-xl font-bold text-gray-800 pr-4">{product.title}</h2>
           <button
             onClick={onClose}
-            className="text-gray-500 hover:text-gray-700 w-10 h-10 rounded-full hover:bg-gray-100 flex items-center justify-center transition-colors"
+            className="text-gray-500 hover:text-gray-700 w-12 h-12 rounded-full hover:bg-gray-100 flex items-center justify-center transition-colors touch-target flex-shrink-0"
           >
             <i className="fas fa-times text-xl"></i>
           </button>
         </div>
 
-        <div className="p-6">
-          <div className="grid lg:grid-cols-2 gap-8">
+        <div className="p-4 md:p-6">
+          <div className="grid lg:grid-cols-2 gap-6 md:gap-8">
             {/* Product Images */}
             <div>
               <div className="mb-4">
                 <img 
                   src={product.images[selectedImage]} 
                   alt={product.title}
-                  className="w-full h-96 object-cover rounded-2xl shadow-lg"
+                  className="w-full h-64 md:h-96 object-cover rounded-xl md:rounded-2xl shadow-lg"
                 />
               </div>
-              <div className="flex space-x-2 overflow-x-auto">
+              <div className="flex space-x-2 overflow-x-auto pb-2">
                 {product.images.map((image, index) => (
                   <button
                     key={index}
                     onClick={() => setSelectedImage(index)}
-                    className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden transition-all ${
+                    className={`flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden transition-all touch-target ${
                       selectedImage === index 
                         ? 'ring-2 ring-yellow-800 opacity-100' 
                         : 'opacity-70 hover:opacity-100'
@@ -93,8 +93,8 @@ const ProductModal = ({ product, isOpen, onClose }) => {
                   </div>
                   <span className="text-gray-500">({product.reviewCount} đánh giá)</span>
                 </div>
-                <p className="text-3xl font-bold text-yellow-800 mb-4">{product.priceDisplay}</p>
-                <p className="text-gray-700 mb-6 leading-relaxed">{product.description}</p>
+                <p className="text-responsive-2xl font-bold text-yellow-800 mb-4">{product.priceDisplay}</p>
+                <p className="text-responsive-base text-gray-700 mb-6 leading-relaxed">{product.description}</p>
               </div>
 
               {/* Size Selection */}
@@ -142,14 +142,14 @@ const ProductModal = ({ product, isOpen, onClose }) => {
               <div className="space-y-3 mb-6">
                 <button 
                   onClick={handleAddToCart}
-                  className="w-full bg-yellow-800 text-white py-4 rounded-lg font-semibold hover:bg-yellow-700 transition-colors transform hover:scale-105"
+                  className="w-full bg-yellow-800 text-white py-4 rounded-lg font-semibold hover:bg-yellow-700 transition-all btn-enhanced btn-mobile touch-target"
                 >
                   <i className="fas fa-shopping-cart mr-2"></i>
                   Thêm vào giỏ hàng
                 </button>
                 <button 
                   onClick={handleBuyNow}
-                  className="w-full border-2 border-yellow-800 text-yellow-800 py-4 rounded-lg font-semibold hover:bg-yellow-50 transition-colors"
+                  className="w-full border-2 border-yellow-800 text-yellow-800 py-4 rounded-lg font-semibold hover:bg-yellow-50 transition-all btn-enhanced btn-mobile touch-target"
                 >
                   <i className="fas fa-bolt mr-2"></i>
                   Mua ngay
