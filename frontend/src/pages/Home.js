@@ -168,20 +168,20 @@ const Home = () => {
                   <p className="text-sm text-gray-600 mb-3 line-clamp-2">{product.description}</p>
                   <div className="flex items-center justify-between mb-3">
                     <div>
-                      <span className="mobile-product-price">{product.priceDisplay}</span>
+                      <span className="text-lg md:text-xl font-bold text-gray-800">{product.priceDisplay}</span>
                       <div className="flex items-center mt-1">
                         <div className="text-yellow-400 mr-2">
                           {[...Array(product.rating)].map((_, i) => (
-                            <i key={i} className="fas fa-star"></i>
+                            <i key={i} className="fas fa-star text-xs"></i>
                           ))}
                         </div>
-                        <span className="text-sm text-gray-500">({product.reviewCount} đánh giá)</span>
+                        <span className="text-xs text-gray-500">({product.reviewCount})</span>
                       </div>
                     </div>
                   </div>
                   <div className="flex gap-2">
                     <button 
-                      className="flex-1 bg-yellow-800 text-white btn-mobile hover:bg-yellow-700 transition-all text-center font-semibold btn-enhanced"
+                      className="flex-1 bg-yellow-800 text-white py-2 px-3 rounded-lg hover:bg-yellow-700 transition-all text-sm font-semibold"
                       onClick={(e) => {
                         e.stopPropagation();
                         openProductModal(product);
@@ -191,10 +191,10 @@ const Home = () => {
                     </button>
                     <button 
                       onClick={(e) => handleQuickAdd(product, e)}
-                      className="bg-green-100 text-green-700 hover:bg-green-200 touch-target rounded-lg hover:scale-105 transition-all btn-enhanced flex-shrink-0"
+                      className="bg-green-100 text-green-700 hover:bg-green-200 p-2 rounded-lg hover:scale-105 transition-all flex-shrink-0"
                       title="Thêm vào giỏ hàng"
                     >
-                      <i className="fas fa-cart-plus"></i>
+                      <i className="fas fa-cart-plus text-sm"></i>
                     </button>
                   </div>
                 </div>
