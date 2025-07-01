@@ -23,31 +23,31 @@ const Header = () => {
   return (
     <header className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md shadow-lg">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between py-4">
+        <div className="flex items-center justify-between py-3 md:py-4">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
-            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-yellow-800 to-yellow-600 flex items-center justify-center">
-              <i className="fas fa-spa text-white text-xl"></i>
+          <Link to="/" className="flex items-center space-x-3 hover-lift">
+            <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-yellow-800 to-yellow-600 flex items-center justify-center">
+              <i className="fas fa-spa text-white text-lg md:text-xl"></i>
             </div>
-            <div>
-              <h1 className="font-display font-bold text-xl text-gray-800">{companyInfo.name}</h1>
-              <p className="text-sm text-gray-600">{companyInfo.subtitle}</p>
+            <div className="hidden sm:block">
+              <h1 className="font-display font-bold text-responsive-lg text-gray-800">{companyInfo.name}</h1>
+              <p className="text-responsive-xs text-gray-600">{companyInfo.subtitle}</p>
             </div>
           </Link>
           
           {/* Desktop Menu */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
-                className={`text-gray-700 hover:text-yellow-800 font-medium transition-colors ${
+                className={`text-gray-700 hover:text-yellow-800 font-medium transition-colors focus-enhanced touch-target text-responsive-sm ${
                   location.pathname === item.href ? 'text-yellow-800' : ''
                 }`}
               >
                 {item.name}
                 {item.name === 'Giỏ hàng' && totalItems > 0 && (
-                  <span className="ml-1 bg-yellow-800 text-white text-xs px-2 py-1 rounded-full">
+                  <span className="ml-1 bg-yellow-800 text-white text-xs px-2 py-1 rounded-full animate-pulse-soft">
                     {totalItems}
                   </span>
                 )}
@@ -62,7 +62,7 @@ const Header = () => {
               <p className="text-xs text-gray-600">Hotline 24/7</p>
             </div>
             <button 
-              className="md:hidden text-gray-700 hover:text-yellow-800"
+              className="md:hidden text-gray-700 hover:text-yellow-800 w-12 h-12 rounded-lg hover:bg-gray-100 flex items-center justify-center transition-all touch-target"
               onClick={toggleMobileMenu}
             >
               <i className="fas fa-bars text-xl"></i>
@@ -83,7 +83,7 @@ const Header = () => {
               </div>
               <span className="font-display font-bold text-lg">{companyInfo.name}</span>
             </div>
-            <button onClick={toggleMobileMenu} className="text-gray-600">
+            <button onClick={toggleMobileMenu} className="text-gray-600 w-10 h-10 rounded-full hover:bg-gray-100 flex items-center justify-center transition-colors touch-target">
               <i className="fas fa-times text-xl"></i>
             </button>
           </div>
@@ -92,7 +92,7 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className="block py-3 text-gray-700 hover:text-yellow-800 border-b border-gray-100"
+                className="block py-4 text-gray-700 hover:text-yellow-800 border-b border-gray-100 touch-target text-responsive-base transition-colors"
                 onClick={toggleMobileMenu}
               >
                 {item.name}
