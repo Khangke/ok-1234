@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { products, getBadgeColor } from '../data/mockData';
 import { useCart } from '../contexts/CartContext';
 
@@ -7,6 +7,7 @@ const Products = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [sortBy, setSortBy] = useState('name');
   const { addToCart } = useCart();
+  const navigate = useNavigate();
 
   const categories = [
     { id: 'all', name: 'Tất cả sản phẩm' },
@@ -37,6 +38,8 @@ const Products = () => {
     const defaultSize = product.sizes[0];
     const midPrice = (product.price.min + product.price.max) / 2;
     addToCart(product, defaultSize, 1, midPrice);
+    // Chuyển thẳng đến trang thanh toán
+    navigate('/checkout');
   };
 
   return (
