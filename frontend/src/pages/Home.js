@@ -82,7 +82,7 @@ const Home = () => {
     <div className="pt-20">
       {/* Hero Banner Carousel */}
       <section className="relative overflow-hidden">
-        <div className="banner-carousel relative w-full h-[400px] md:h-[500px] lg:h-[600px]">
+        <div className="banner-carousel relative w-full h-[250px] sm:h-[300px] md:h-[400px] lg:h-[450px] xl:h-[500px]">
           <div className="carousel-container relative w-full h-full">
             {bannerImages.map((image, index) => (
               <div 
@@ -94,14 +94,14 @@ const Home = () => {
                 <img 
                   src={image.src}
                   alt={image.alt}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain bg-white"
                 />
               </div>
             ))}
           </div>
           
           {/* Carousel Indicators */}
-          <div className="carousel-indicators absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
+          <div className="carousel-indicators absolute bottom-4 md:bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2 md:space-x-3 z-10">
             {bannerImages.map((_, index) => (
               <button 
                 key={index}
@@ -109,7 +109,7 @@ const Home = () => {
                 className={`carousel-indicator w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
                   index === currentSlide 
                     ? 'bg-yellow-500 w-6 md:w-8' 
-                    : 'bg-white/50 hover:bg-white/75'
+                    : 'bg-white/70 hover:bg-white/90'
                 }`}
               />
             ))}
@@ -118,15 +118,15 @@ const Home = () => {
           {/* Navigation Arrows */}
           <button 
             onClick={prevSlide}
-            className="carousel-nav carousel-prev absolute left-2 md:left-6 top-1/2 transform -translate-y-1/2 z-10 bg-black/30 hover:bg-black/50 rounded-full w-8 h-8 md:w-12 md:h-12 flex items-center justify-center transition-all duration-300"
+            className="carousel-nav carousel-prev absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/40 hover:bg-black/60 rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center transition-all duration-300"
           >
-            <i className="fas fa-chevron-left text-white text-sm md:text-xl"></i>
+            <i className="fas fa-chevron-left text-white text-sm md:text-base"></i>
           </button>
           <button 
             onClick={nextSlide}
-            className="carousel-nav carousel-next absolute right-2 md:right-6 top-1/2 transform -translate-y-1/2 z-10 bg-black/30 hover:bg-black/50 rounded-full w-8 h-8 md:w-12 md:h-12 flex items-center justify-center transition-all duration-300"
+            className="carousel-nav carousel-next absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/40 hover:bg-black/60 rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center transition-all duration-300"
           >
-            <i className="fas fa-chevron-right text-white text-sm md:text-xl"></i>
+            <i className="fas fa-chevron-right text-white text-sm md:text-base"></i>
           </button>
         </div>
       </section>
