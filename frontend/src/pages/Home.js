@@ -132,18 +132,18 @@ const Home = () => {
       </section>
 
       {/* Featured Products */}
-      <section className="py-8 md:py-16 bg-white">
+      <section className="py-6 md:py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold font-display text-gray-800 animate-fade-in">
+          <div className="text-center mb-6 md:mb-12">
+            <h2 className="text-xl md:text-3xl lg:text-4xl font-bold font-display text-gray-800 animate-fade-in">
               SẢN PHẨM <span className="text-yellow-800">NỔI BẬT</span>
             </h2>
-            <p className="text-sm md:text-base text-gray-600 max-w-2xl mx-auto mt-4 animate-fade-in animate-delay-200">
+            <p className="text-xs md:text-base text-gray-600 max-w-2xl mx-auto mt-2 md:mt-4 animate-fade-in animate-delay-200">
               Bộ sưu tập trầm hương cao cấp được tuyển chọn từ những vùng đất nổi tiếng nhất Việt Nam
             </p>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
             {products.slice(0, 6).map((product, index) => (
               <div 
                 key={product.id} 
@@ -151,26 +151,26 @@ const Home = () => {
                 style={{ animationDelay: `${index * 0.1}s` }}
                 onClick={() => openProductModal(product)}
               >
-                <div className="relative h-48 md:h-56 overflow-hidden">
+                <div className="relative h-32 md:h-56 overflow-hidden">
                   <img 
                     src={product.images[0]} 
                     alt={product.title}
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute top-3 left-3">
+                  <div className="absolute top-2 left-2 md:top-3 md:left-3">
                     <span className={`text-xs px-2 py-1 rounded-full font-medium ${getBadgeColor(product.badgeColor)}`}>
                       {product.badge}
                     </span>
                   </div>
                 </div>
-                <div className="p-4">
-                  <h3 className="text-base md:text-lg font-semibold text-gray-800 mb-2 line-clamp-2">{product.title}</h3>
-                  <p className="text-sm text-gray-600 mb-3 line-clamp-2">{product.description}</p>
-                  <div className="flex items-center justify-between mb-3">
+                <div className="p-3 md:p-4">
+                  <h3 className="text-sm md:text-lg font-semibold text-gray-800 mb-2 line-clamp-2 leading-tight">{product.title}</h3>
+                  <p className="text-xs md:text-sm text-gray-600 mb-2 md:mb-3 line-clamp-2 leading-relaxed">{product.description}</p>
+                  <div className="flex items-center justify-between mb-2 md:mb-3">
                     <div>
-                      <span className="text-lg md:text-xl font-bold text-gray-800">{product.priceDisplay}</span>
+                      <span className="text-sm md:text-xl font-bold text-gray-800">{product.priceDisplay}</span>
                       <div className="flex items-center mt-1">
-                        <div className="text-yellow-400 mr-2">
+                        <div className="text-yellow-400 mr-1 md:mr-2">
                           {[...Array(product.rating)].map((_, i) => (
                             <i key={i} className="fas fa-star text-xs"></i>
                           ))}
@@ -181,20 +181,20 @@ const Home = () => {
                   </div>
                   <div className="flex gap-2">
                     <button 
-                      className="flex-1 bg-yellow-800 text-white py-2 px-3 rounded-lg hover:bg-yellow-700 transition-all text-sm font-semibold"
+                      className="flex-1 bg-yellow-800 text-white py-2 px-2 md:px-3 rounded-lg hover:bg-yellow-700 transition-all text-xs md:text-sm font-semibold"
                       onClick={(e) => {
                         e.stopPropagation();
                         openProductModal(product);
                       }}
                     >
-                      Xem chi tiết
+                      Chi tiết
                     </button>
                     <button 
                       onClick={(e) => handleQuickAdd(product, e)}
                       className="bg-green-100 text-green-700 hover:bg-green-200 p-2 rounded-lg hover:scale-105 transition-all flex-shrink-0"
                       title="Thêm vào giỏ hàng"
                     >
-                      <i className="fas fa-cart-plus text-sm"></i>
+                      <i className="fas fa-cart-plus text-xs md:text-sm"></i>
                     </button>
                   </div>
                 </div>
