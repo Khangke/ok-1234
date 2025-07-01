@@ -1,0 +1,264 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { products, testimonials, companyInfo, getBadgeColor } from '../data/mockData';
+import { useCart } from '../contexts/CartContext';
+
+const Home = () => {
+  const { addToCart } = useCart();
+
+  const handleQuickAdd = (product) => {
+    // Add with default size and mid-range price
+    const defaultSize = product.sizes[0];
+    const midPrice = (product.price.min + product.price.max) / 2;
+    addToCart(product, defaultSize, 1, midPrice);
+  };
+
+  return (
+    <div className="pt-20">
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-yellow-800 to-orange-800">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-black/40"></div>
+          <img 
+            src="https://tramhuongviet.com/wp-content/themes/yootheme/cache/b3/banner-trang-home-b3591009.jpeg" 
+            alt="Trầm Hương Banner"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        
+        <div className="container mx-auto px-4 py-20 relative z-10">
+          <div className="max-w-4xl mx-auto text-center text-white">
+            <h1 className="font-display text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
+              Trầm Hương<br/>
+              <span className="text-yellow-300">Cao Cấp Việt Nam</span>
+            </h1>
+            <p className="text-xl md:text-2xl mb-8 opacity-90 max-w-2xl mx-auto animate-fade-in">
+              Khám phá bộ sưu tập trầm hương tự nhiên, mang đến sự bình an và thịnh vượng cho cuộc sống
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
+              <Link 
+                to="/products"
+                className="bg-gradient-to-r from-yellow-800 to-yellow-600 text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+              >
+                <i className="fas fa-shopping-bag mr-2"></i>
+                Khám phá sản phẩm
+              </Link>
+              <Link 
+                to="/contact"
+                className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-yellow-800 transition-all duration-300"
+              >
+                <i className="fas fa-phone mr-2"></i>
+                Liên hệ tư vấn
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Floating Elements */}
+        <div className="absolute top-1/4 left-10 text-yellow-200 opacity-20 animate-float">
+          <i className="fas fa-spa text-6xl"></i>
+        </div>
+        <div className="absolute bottom-1/4 right-10 text-yellow-200 opacity-20 animate-float-delayed">
+          <i className="fas fa-leaf text-4xl"></i>
+        </div>
+      </section>
+
+      {/* Featured Products */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+              Sản Phẩm <span className="text-yellow-800">Nổi Bật</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Bộ sưu tập trầm hương cao cấp được tuyển chọn từ những vùng đất nổi tiếng nhất Việt Nam
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {products.slice(0, 6).map((product) => (
+              <div key={product.id} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
+                <div className="relative h-64">
+                  <img 
+                    src={product.images[0]} 
+                    alt={product.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute top-4 left-4">
+                    <span className={`text-xs px-3 py-1 rounded-full ${getBadgeColor(product.badgeColor)}`}>
+                      {product.badge}
+                    </span>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="font-display text-2xl font-semibold text-gray-800 mb-3">{product.title}</h3>
+                  <p className="text-gray-600 mb-4 line-clamp-2">{product.description}</p>
+                  <div className="flex items-center justify-between mb-4">
+                    <div>
+                      <span className="text-2xl font-bold text-yellow-800">{product.priceDisplay}</span>
+                      <div className="flex items-center mt-1">
+                        <div className="text-yellow-400 mr-2">
+                          {[...Array(product.rating)].map((_, i) => (
+                            <i key={i} className="fas fa-star"></i>
+                          ))}
+                        </div>
+                        <span className="text-sm text-gray-500">({product.reviewCount} đánh giá)</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex gap-2">
+                    <Link 
+                      to={`/product/${product.id}`}
+                      className="flex-1 bg-yellow-800 text-white px-4 py-2 rounded-lg hover:bg-yellow-700 transition-colors text-center font-semibold"
+                    >
+                      Xem chi tiết
+                    </Link>
+                    <button 
+                      onClick={() => handleQuickAdd(product)}
+                      className="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors"
+                      title="Thêm vào giỏ hàng"
+                    >
+                      <i className="fas fa-shopping-cart"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <div className="text-center mt-12">
+            <Link 
+              to="/products"
+              className="bg-gradient-to-r from-yellow-800 to-yellow-600 text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+            >
+              <i className="fas fa-th-large mr-2"></i>
+              Xem tất cả sản phẩm
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className="py-20 bg-gradient-to-br from-yellow-50 to-orange-50">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+                Về <span className="text-yellow-800">{companyInfo.name}</span>
+              </h2>
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                Sơn Mộc Hương là địa chỉ uy tín chuyên cung cấp các sản phẩm trầm hương chất lượng cao, 
+                bao gồm vòng tay trầm, nhang trầm và các phụ kiện xông trầm đa dạng. Chúng tôi tự hào 
+                mang đến cho khách hàng những sản phẩm từ thiên nhiên, với nguyên liệu trầm hương nguyên 
+                chất được chọn lọc kỹ lưỡng từ những vùng đất nổi tiếng về trầm hương tại Việt Nam.
+              </p>
+              
+              <div className="grid md:grid-cols-2 gap-6 mb-8">
+                {companyInfo.features.map((feature, index) => (
+                  <div key={index} className="flex items-center space-x-3">
+                    <div className="w-12 h-12 bg-yellow-800 rounded-full flex items-center justify-center">
+                      <i className={`fas fa-${feature.icon} text-white`}></i>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-800">{feature.title}</h4>
+                      <p className="text-sm text-gray-600">{feature.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              <Link 
+                to="/contact"
+                className="bg-gradient-to-r from-yellow-800 to-yellow-600 text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+              >
+                <i className="fas fa-phone mr-2"></i>
+                Liên hệ tư vấn ngay
+              </Link>
+            </div>
+            
+            <div className="relative">
+              <div className="bg-gradient-to-br from-yellow-200 to-orange-200 rounded-3xl p-8 h-96 flex items-center justify-center">
+                <div className="text-center">
+                  <i className="fas fa-spa text-8xl text-yellow-800 mb-4"></i>
+                  <h3 className="font-display text-2xl font-bold text-yellow-800">Trầm Hương Việt Nam</h3>
+                  <p className="text-yellow-700">Tinh hoa thiên nhiên</p>
+                </div>
+              </div>
+              
+              {/* Stats Cards */}
+              <div className="absolute -bottom-8 -left-8 bg-white rounded-2xl shadow-lg p-6 animate-float">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-yellow-800">1000+</div>
+                  <div className="text-sm text-gray-600">Khách hàng hài lòng</div>
+                </div>
+              </div>
+              
+              <div className="absolute -top-8 -right-8 bg-white rounded-2xl shadow-lg p-6 animate-float-delayed">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-yellow-800">7+</div>
+                  <div className="text-sm text-gray-600">Năm kinh nghiệm</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+              Khách Hàng <span className="text-yellow-800">Nói Gì</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Những phản hồi chân thành từ khách hàng đã tin tưởng và sử dụng sản phẩm của chúng tôi
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {testimonials.map((testimonial) => (
+              <div key={testimonial.id} className="bg-gradient-to-br from-white to-yellow-50 p-6 rounded-2xl shadow-lg border-l-4 border-yellow-600">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-yellow-800 rounded-full flex items-center justify-center mr-4">
+                    <i className="fas fa-user text-white"></i>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-800">{testimonial.name}</h4>
+                    <p className="text-sm text-gray-600">{testimonial.location}</p>
+                  </div>
+                </div>
+                <div className="flex mb-3 text-yellow-400">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <i key={i} className="fas fa-star"></i>
+                  ))}
+                </div>
+                <p className="text-gray-700 italic">"{testimonial.comment}"</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* WhatsApp Float Button */}
+      <a 
+        href={`https://wa.me/${companyInfo.whatsapp}`} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="fixed bottom-24 right-8 w-14 h-14 bg-green-500 text-white rounded-full shadow-lg hover:bg-green-600 transition-all flex items-center justify-center z-40 animate-pulse"
+      >
+        <i className="fab fa-whatsapp text-2xl"></i>
+      </a>
+
+      {/* Scroll to Top Button */}
+      <button 
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        className="fixed bottom-8 right-8 w-12 h-12 bg-yellow-800 text-white rounded-full shadow-lg hover:bg-yellow-700 transition-all z-40"
+      >
+        <i className="fas fa-arrow-up"></i>
+      </button>
+    </div>
+  );
+};
+
+export default Home;
