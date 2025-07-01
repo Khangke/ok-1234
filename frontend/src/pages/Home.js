@@ -79,9 +79,9 @@ const Home = () => {
   };
 
   return (
-    <div>
-      {/* Hero Banner Carousel - Full Width */}
-      <section className="relative overflow-hidden w-screen -mx-4 md:-mx-6 lg:-mx-8">
+    <div className="pt-20">
+      {/* Hero Banner Carousel */}
+      <section className="relative overflow-hidden">
         <div className="banner-carousel relative w-full h-[250px] sm:h-[300px] md:h-[400px] lg:h-[450px] xl:h-[500px]">
           <div className="carousel-container relative w-full h-full">
             {bannerImages.map((image, index) => (
@@ -130,9 +130,6 @@ const Home = () => {
           </button>
         </div>
       </section>
-
-      {/* Content with container */}
-      <div className="pt-20">
 
       {/* Featured Products */}
       <section className="mobile-section bg-white">
