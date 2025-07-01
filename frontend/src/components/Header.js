@@ -24,12 +24,12 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between py-3 md:py-4">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 hover-lift">
+          <Link to="/" className="flex items-center space-x-3 hover-lift" onClick={() => window.location.reload()}>
             <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-yellow-800 to-yellow-600 flex items-center justify-center">
               <i className="fas fa-spa text-white text-lg md:text-xl"></i>
             </div>
             <div className="hidden sm:block">
-              <h1 className="font-display font-bold text-responsive-lg text-gray-800">{companyInfo.name}</h1>
+              <h1 className="font-display font-bold text-responsive-lg text-gray-800 cursor-pointer hover:text-yellow-800 transition-colors">{companyInfo.name}</h1>
               <p className="text-responsive-xs text-gray-600">{companyInfo.subtitle}</p>
             </div>
           </Link>
