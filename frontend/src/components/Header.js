@@ -16,7 +16,6 @@ const Header = () => {
   const navigation = [
     { name: 'Trang chủ', href: '/' },
     { name: 'Sản phẩm', href: '/products' },
-    { name: 'Giỏ hàng', href: '/cart' },
     { name: 'Liên hệ', href: '/contact' }
   ];
 
