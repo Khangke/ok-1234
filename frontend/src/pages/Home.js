@@ -215,29 +215,29 @@ const Home = () => {
       </section>
 
       {/* About Section */}
-      <section className="py-20 bg-gradient-to-br from-yellow-50 to-orange-50">
+      <section className="py-12 md:py-20 bg-gradient-to-br from-yellow-50 to-orange-50">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <div>
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-gray-800 mb-6">
-                Về <span className="text-yellow-800">{companyInfo.name}</span>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold font-display text-gray-800 mb-4 md:mb-6">
+                VỀ <span className="text-yellow-800">{companyInfo.name}</span>
               </h2>
-              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+              <p className="text-sm md:text-base lg:text-lg text-gray-700 mb-4 md:mb-6 leading-relaxed">
                 Sơn Mộc Hương là địa chỉ uy tín chuyên cung cấp các sản phẩm trầm hương chất lượng cao, 
                 bao gồm vòng tay trầm, nhang trầm và các phụ kiện xông trầm đa dạng. Chúng tôi tự hào 
                 mang đến cho khách hàng những sản phẩm từ thiên nhiên, với nguyên liệu trầm hương nguyên 
                 chất được chọn lọc kỹ lưỡng từ những vùng đất nổi tiếng về trầm hương tại Việt Nam.
               </p>
               
-              <div className="grid md:grid-cols-2 gap-6 mb-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8">
                 {companyInfo.features.map((feature, index) => (
                   <div key={index} className="flex items-center space-x-3">
-                    <div className="w-12 h-12 bg-yellow-800 rounded-full flex items-center justify-center">
-                      <i className={`fas fa-${feature.icon} text-white`}></i>
+                    <div className="w-10 h-10 md:w-12 md:h-12 bg-yellow-800 rounded-full flex items-center justify-center flex-shrink-0">
+                      <i className={`fas fa-${feature.icon} text-white text-sm md:text-base`}></i>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-800">{feature.title}</h4>
-                      <p className="text-sm text-gray-600">{feature.description}</p>
+                      <h4 className="text-sm md:text-base font-semibold text-gray-800">{feature.title}</h4>
+                      <p className="text-xs md:text-sm text-gray-600">{feature.description}</p>
                     </div>
                   </div>
                 ))}
@@ -245,7 +245,7 @@ const Home = () => {
               
               <Link 
                 to="/contact"
-                className="bg-gradient-to-r from-yellow-800 to-yellow-600 text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                className="inline-block bg-gradient-to-r from-yellow-800 to-yellow-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 text-sm md:text-base"
               >
                 <i className="fas fa-phone mr-2"></i>
                 Liên hệ tư vấn ngay
