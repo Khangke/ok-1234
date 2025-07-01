@@ -1,16 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { products, testimonials, companyInfo, getBadgeColor } from '../data/mockData';
 import { useCart } from '../contexts/CartContext';
 
 const Home = () => {
   const { addToCart } = useCart();
+  const navigate = useNavigate();
 
   const handleQuickAdd = (product) => {
     // Add with default size and mid-range price
     const defaultSize = product.sizes[0];
     const midPrice = (product.price.min + product.price.max) / 2;
     addToCart(product, defaultSize, 1, midPrice);
+    // Chuyển thẳng đến trang thanh toán
+    navigate('/checkout');
   };
 
   return (
