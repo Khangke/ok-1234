@@ -58,15 +58,12 @@ const Home = () => {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-yellow-800 to-orange-800">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-black/40"></div>
-          <img 
-            src="https://tramhuongviet.com/wp-content/themes/yootheme/cache/b3/banner-trang-home-b3591009.jpeg" 
-            alt="Trầm Hương Banner"
-            className="w-full h-full object-cover"
-          />
-        </div>
+      <section className="relative min-h-screen overflow-hidden">
+        <img 
+          src="https://tramhuongviet.com/wp-content/themes/yootheme/cache/b3/banner-trang-home-b3591009.jpeg" 
+          alt="Vòng Trầm Hương Nam Banner"
+          className="w-full h-full min-h-screen object-cover"
+        />
         
         <div className="mobile-hero relative z-10">
           <div className="max-w-4xl mx-auto text-white">
