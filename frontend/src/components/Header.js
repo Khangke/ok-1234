@@ -111,13 +111,24 @@ const Header = () => {
                 onClick={toggleMobileMenu}
               >
                 {item.name}
-                {item.name === 'Giỏ hàng' && totalItems > 0 && (
-                  <span className="ml-2 bg-yellow-800 text-white text-xs px-2 py-1 rounded-full">
-                    {totalItems}
-                  </span>
-                )}
               </Link>
             ))}
+            {/* Mobile Cart Link */}
+            <Link
+              to="/cart"
+              className="flex items-center justify-between py-4 text-gray-700 hover:text-yellow-800 border-b border-gray-100 touch-target text-responsive-base transition-colors"
+              onClick={toggleMobileMenu}
+            >
+              <span className="flex items-center">
+                <i className="fas fa-shopping-cart mr-3"></i>
+                Giỏ hàng
+              </span>
+              {totalItems > 0 && (
+                <span className="bg-yellow-800 text-white text-xs px-2 py-1 rounded-full">
+                  {totalItems}
+                </span>
+              )}
+            </Link>
           </nav>
           <div className="mt-8 p-4 bg-gray-50 rounded-lg">
             <p className="font-medium text-gray-800">Hotline: {companyInfo.phone}</p>
