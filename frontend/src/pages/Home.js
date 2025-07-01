@@ -9,6 +9,51 @@ const Home = () => {
   const navigate = useNavigate();
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const bannerImages = [
+    {
+      src: "https://tramhuongviet.com/wp-content/themes/yootheme/cache/b3/banner-trang-home-b3591009.jpeg",
+      alt: "Nhang Nụ Trầm Hương - Sơn Mộc Hương"
+    },
+    {
+      src: "https://tramhuongviet.com/wp-content/themes/yootheme/cache/b3/banner-trang-home-b3591009.jpeg",
+      alt: "Vòng Trầm Hương Nam"
+    },
+    {
+      src: "https://tramhuongviet.com/wp-content/themes/yootheme/cache/b3/banner-trang-home-b3591009.jpeg",
+      alt: "Ưu Điểm Vòng Trầm Hương Chìm Nước"
+    },
+    {
+      src: "https://tramhuongviet.com/wp-content/themes/yootheme/cache/b3/banner-trang-home-b3591009.jpeg",
+      alt: "Đặc Điểm Nhang Trầm Sơn Mộc Hương"
+    },
+    {
+      src: "https://tramhuongviet.com/wp-content/themes/yootheme/cache/b3/banner-trang-home-b3591009.jpeg",
+      alt: "Vòng 108 Hạt Trầm Cần Chìm"
+    }
+  ];
+
+  // Auto slide effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % bannerImages.length);
+    }, 5000); // Change slide every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [bannerImages.length]);
+
+  const goToSlide = (index) => {
+    setCurrentSlide(index);
+  };
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % bannerImages.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + bannerImages.length) % bannerImages.length);
+  };
 
   const handleQuickAdd = (product, e) => {
     e.stopPropagation();
